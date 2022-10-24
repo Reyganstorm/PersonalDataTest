@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4257EE8258AD3A997E1DD60E /* Pods_PersonalDataTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2197E107FC095E912F6F6A36 /* Pods_PersonalDataTest.framework */; };
 		E8A813D92906B46F00BF5380 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A813D82906B46F00BF5380 /* AppDelegate.swift */; };
 		E8A813DB2906B46F00BF5380 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A813DA2906B46F00BF5380 /* SceneDelegate.swift */; };
 		E8A813DD2906B46F00BF5380 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A813DC2906B46F00BF5380 /* ViewController.swift */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2197E107FC095E912F6F6A36 /* Pods_PersonalDataTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalDataTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3181867BF4CB117C85F755EA /* Pods-PersonalDataTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalDataTest.debug.xcconfig"; path = "Target Support Files/Pods-PersonalDataTest/Pods-PersonalDataTest.debug.xcconfig"; sourceTree = "<group>"; };
+		5EBDC21C8A3D70DD78BA4F4D /* Pods-PersonalDataTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalDataTest.release.xcconfig"; path = "Target Support Files/Pods-PersonalDataTest/Pods-PersonalDataTest.release.xcconfig"; sourceTree = "<group>"; };
 		E8A813D52906B46F00BF5380 /* PersonalDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A813D82906B46F00BF5380 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A813DA2906B46F00BF5380 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4257EE8258AD3A997E1DD60E /* Pods_PersonalDataTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CCFF4781B19317A881DDE033 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2197E107FC095E912F6F6A36 /* Pods_PersonalDataTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E8A813CC2906B46F00BF5380 = {
 			isa = PBXGroup;
 			children = (
 				E8A813D72906B46F00BF5380 /* PersonalDataTest */,
 				E8A813D62906B46F00BF5380 /* Products */,
+				F6F5EC81606C2917293A74CE /* Pods */,
+				CCFF4781B19317A881DDE033 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +69,32 @@
 		E8A813D72906B46F00BF5380 /* PersonalDataTest */ = {
 			isa = PBXGroup;
 			children = (
-				E8A813D82906B46F00BF5380 /* AppDelegate.swift */,
-				E8A813DA2906B46F00BF5380 /* SceneDelegate.swift */,
+				E8A813EE2906B7AF00BF5380 /* App */,
 				E8A813DC2906B46F00BF5380 /* ViewController.swift */,
 				E8A813E12906B47100BF5380 /* Assets.xcassets */,
 				E8A813E32906B47100BF5380 /* LaunchScreen.storyboard */,
-				E8A813E62906B47100BF5380 /* Info.plist */,
 			);
 			path = PersonalDataTest;
+			sourceTree = "<group>";
+		};
+		E8A813EE2906B7AF00BF5380 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E8A813DA2906B46F00BF5380 /* SceneDelegate.swift */,
+				E8A813D82906B46F00BF5380 /* AppDelegate.swift */,
+				E8A813E62906B47100BF5380 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F6F5EC81606C2917293A74CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3181867BF4CB117C85F755EA /* Pods-PersonalDataTest.debug.xcconfig */,
+				5EBDC21C8A3D70DD78BA4F4D /* Pods-PersonalDataTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8A813E92906B47100BF5380 /* Build configuration list for PBXNativeTarget "PersonalDataTest" */;
 			buildPhases = (
+				0F121E40C339527FB94EE203 /* [CP] Check Pods Manifest.lock */,
 				E8A813D12906B46F00BF5380 /* Sources */,
 				E8A813D22906B46F00BF5380 /* Frameworks */,
 				E8A813D32906B46F00BF5380 /* Resources */,
+				E1C7A4020CCB3917D2081338 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +163,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F121E40C339527FB94EE203 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PersonalDataTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1C7A4020CCB3917D2081338 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PersonalDataTest/Pods-PersonalDataTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PersonalDataTest/Pods-PersonalDataTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersonalDataTest/Pods-PersonalDataTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E8A813D12906B46F00BF5380 /* Sources */ = {
@@ -270,6 +347,7 @@
 		};
 		E8A813EA2906B47100BF5380 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3181867BF4CB117C85F755EA /* Pods-PersonalDataTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -277,7 +355,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q7FR5CHKB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PersonalDataTest/Info.plist;
+				INFOPLIST_FILE = PersonalDataTest/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -299,6 +377,7 @@
 		};
 		E8A813EB2906B47100BF5380 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EBDC21C8A3D70DD78BA4F4D /* Pods-PersonalDataTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,7 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q7FR5CHKB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PersonalDataTest/Info.plist;
+				INFOPLIST_FILE = PersonalDataTest/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
