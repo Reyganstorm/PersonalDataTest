@@ -14,6 +14,7 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Персональные данные"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -50,7 +51,20 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
     private let addChildrenLabel: UILabel = {
         let label = UILabel()
         label.text = "Дети (макс. 5)"
+        label.font = UIFont.systemFont(ofSize: 17)
+        
         return label
+    }()
+    
+    private let addChildButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.setTitle(" Добавить ребенка", for: .normal)
+        button.setTitleColor(UIColor.link, for: .normal)
+        button.layer.cornerRadius = 20
+        button.layer.borderColor = UIColor.link.cgColor
+        button.layer.borderWidth = 2
+        return button
     }()
     
     func configure() {
@@ -65,6 +79,7 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
         addSubview(ageView)
         ageView.addSubview(ageTextField)
         addSubview(addChildrenLabel)
+        addSubview(addChildButton)
     }
     
     private func addConstraints() {
@@ -97,10 +112,32 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
             make.left.equalToSuperview().offset(15)
         }
         
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        
+        addChildButton.snp.makeConstraints { make in
+            make.top.equalTo(ageView.snp.bottom).offset(10)
+            make.right.equalToSuperview().offset(-20)
+            if (screenWidth - 255) < 119 {
+                make.left.equalToSuperview().offset(20)
+            } else {
+                make.left.greaterThanOrEqualTo(addChildrenLabel.snp.right).offset(15)
+                make.bottom.equalToSuperview().offset(-20)
+            }
+            make.width.equalTo(200)
+            make.height.equalTo(40)
+        }
+        
         addChildrenLabel.snp.makeConstraints { make in
-            make.top.equalTo(ageTextField.snp.bottom).offset(30)
-            make.left.equalTo(titleLabel)
-            make.bottom.equalToSuperview().offset(-20)
+            if (screenWidth - 255) < 119 {
+                make.top.equalTo(addChildButton.snp.bottom).offset(10)
+                make.left.equalToSuperview().offset(20)
+                make.bottom.equalToSuperview().offset(-20)
+            } else {
+                make.centerY.equalTo(addChildButton)
+                make.left.equalTo(titleLabel)
+                make.width.equalTo(120)
+            }
         }
     }
 }

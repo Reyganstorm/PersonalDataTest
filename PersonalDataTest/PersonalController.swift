@@ -12,7 +12,7 @@ class PersonalController: UIViewController {
     private let childrenCount = 5
     
     private let personalTableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .grouped)
         table.register(ChildrenTableViewCell.self,
                        forCellReuseIdentifier: ChildrenTableViewCell.identifier)
         table.register(PersonalDataHeader.self,
