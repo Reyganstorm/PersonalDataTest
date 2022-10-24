@@ -12,11 +12,34 @@ class ChildrenTableViewCell: UITableViewCell {
     
     static let identifier = "PersonalTableViewCell"
 
-    private let backView: UIView = {
+    private let nameView: UIView = {
         let view = UIView()
-        view.backgroundColor = .link
-        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.cornerRadius = 5
         return view
+    }()
+
+    private let nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.addTopLable(text: "Имя")
+        textField.text = "Petr"
+        return textField
+    }()
+    
+    private let ageView: UIView = {
+        let view = UIView()
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.cornerRadius = 5
+        return view
+    }()
+
+    private let ageTextField: UITextField = {
+        let textField = UITextField()
+        textField.addTopLable(text: "Возраст")
+        textField.text = "99"
+        return textField
     }()
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,19 +54,37 @@ class ChildrenTableViewCell: UITableViewCell {
     
     private func addViews() {
         backgroundColor = .clear
-        addSubview(backView)
+        contentView.addSubview(nameView)
+        nameView.addSubview(nameTextField)
+        contentView.addSubview(ageView)
+        ageView.addSubview(ageTextField)
     }
     
     private func addConstraints() {
         
-        backView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(7.5)
-            make.bottom.equalToSuperview().offset(-7.5)
-            make.height.equalTo(50)
+        nameView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
             make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(200)
+        }
+        
+        nameTextField.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.bottom.right.equalToSuperview().offset(-5)
+            make.left.equalToSuperview().offset(15)
+        }
+        
+        ageView.snp.makeConstraints { make in
+            make.top.equalTo(nameView.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(200)
+            make.bottom.equalToSuperview().offset(-20)
+        }
+        
+        ageTextField.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.bottom.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(15)
         }
     }
-    
-
 }

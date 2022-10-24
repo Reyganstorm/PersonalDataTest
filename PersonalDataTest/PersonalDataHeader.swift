@@ -67,9 +67,10 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
         return button
     }()
     
-    func configure() {
+    func configure(childButton: Bool) {
         addViews()
         addConstraints()
+        addChildButton.isHidden = childButton
     }
     
     private func addViews() {
@@ -139,5 +140,11 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
                 make.width.equalTo(120)
             }
         }
+    }
+}
+
+extension PersonalDataHeader {
+    func addTargetForAddChild(target: Any, action: Selector) {
+        addChildButton.addTarget(target, action: action, for: .touchUpInside)
     }
 }

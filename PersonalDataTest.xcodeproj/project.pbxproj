@@ -11,6 +11,7 @@
 		E82224242906BF1C0051E524 /* ChildrenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82224232906BF1C0051E524 /* ChildrenTableViewCell.swift */; };
 		E82224262906C2450051E524 /* PersonalDataHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82224252906C2450051E524 /* PersonalDataHeader.swift */; };
 		E822242E2906D0D00051E524 /* UITextField + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822242D2906D0D00051E524 /* UITextField + ext.swift */; };
+		E842B680290731D0003C8730 /* ChildrenManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842B67F290731D0003C8730 /* ChildrenManger.swift */; };
 		E8A813D92906B46F00BF5380 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A813D82906B46F00BF5380 /* AppDelegate.swift */; };
 		E8A813DB2906B46F00BF5380 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A813DA2906B46F00BF5380 /* SceneDelegate.swift */; };
 		E8A813DD2906B46F00BF5380 /* PersonalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A813DC2906B46F00BF5380 /* PersonalController.swift */; };
@@ -25,6 +26,7 @@
 		E82224232906BF1C0051E524 /* ChildrenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenTableViewCell.swift; sourceTree = "<group>"; };
 		E82224252906C2450051E524 /* PersonalDataHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataHeader.swift; sourceTree = "<group>"; };
 		E822242D2906D0D00051E524 /* UITextField + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + ext.swift"; sourceTree = "<group>"; };
+		E842B67F290731D0003C8730 /* ChildrenManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenManger.swift; sourceTree = "<group>"; };
 		E8A813D52906B46F00BF5380 /* PersonalDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A813D82906B46F00BF5380 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A813DA2906B46F00BF5380 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E842B67E290731BB003C8730 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E842B67F290731D0003C8730 /* ChildrenManger.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E8A813CC2906B46F00BF5380 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		E8A813D72906B46F00BF5380 /* PersonalDataTest */ = {
 			isa = PBXGroup;
 			children = (
+				E842B67E290731BB003C8730 /* Services */,
 				E822242C2906D0B30051E524 /* Extension */,
 				E82224222906BA050051E524 /* Resources */,
 				E8A813EE2906B7AF00BF5380 /* App */,
@@ -241,6 +252,7 @@
 				E82224262906C2450051E524 /* PersonalDataHeader.swift in Sources */,
 				E8A813D92906B46F00BF5380 /* AppDelegate.swift in Sources */,
 				E8A813DB2906B46F00BF5380 /* SceneDelegate.swift in Sources */,
+				E842B680290731D0003C8730 /* ChildrenManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

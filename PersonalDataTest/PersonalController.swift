@@ -9,7 +9,7 @@ import UIKit
 
 class PersonalController: UIViewController {
     
-    private let childrenCount = 5
+    private let storage = ChildrenManger.shared
     
     private let personalTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -31,19 +31,24 @@ class PersonalController: UIViewController {
         personalTableView.delegate = self
     }
     
-
+    @objc private func appendChild() {
+        storage.addChildren()
+        personalTableView.reloadData()
+    }
 }
 
 extension PersonalController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: PersonalDataHeader.identifier) as! PersonalDataHeader
-        cell.configure()
+        let addButtonIsHidden = storage.getChildrenCount() > 4
+        cell.configure(childButton: addButtonIsHidden)
+        cell.addTargetForAddChild(target: self, action: #selector(appendChild))
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        childrenCount
+        storage.getChildrenCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +58,4 @@ extension PersonalController: UITableViewDataSource, UITableViewDelegate {
         cell.configure()
         return cell
     }
-    
-    
 }
