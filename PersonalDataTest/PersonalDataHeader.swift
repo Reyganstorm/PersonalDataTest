@@ -29,7 +29,7 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.addTopLable(text: "Имя")
-        textField.text = "Petr"
+        textField.text = ""
         textField.placeholder = "Enter"
         return textField
     }()
@@ -45,7 +45,7 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
     private let ageTextField: UITextField = {
         let textField = UITextField()
         textField.addTopLable(text: "Возраст")
-        textField.text = "99"
+        textField.text = ""
         textField.keyboardType = .decimalPad
         textField.placeholder = "Enter"
         return textField
