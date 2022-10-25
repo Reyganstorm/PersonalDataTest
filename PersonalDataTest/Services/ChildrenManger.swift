@@ -13,24 +13,40 @@ class ChildrenManger {
     
     private init() {}
     
-    private var countOfChildren = 0
+    private var children = [Child]()
     
     func addChildren() {
-        if countOfChildren < 5 {
-        countOfChildren += 1
+        if children.count < 5 {
+            children.append(Child(name: "", age: ""))
         }
     }
     
-    func deleteChildren() {
-        if countOfChildren > 0 {
-            countOfChildren -= 1
+    func deleteChildren(at index: Int) {
+        if children.count > 0 {
+            children.remove(at: index)
         }
+    }
+    
+    func deleteAll() {
+        children = [Child]()
     }
     
     func getChildrenCount() -> Int {
-        countOfChildren
+        children.count
+    }
+    
+    func getChildForRework(at index: Int) -> Child {
+        return children[index]
     }
     
 }
 
-
+class Child {
+    var name: String
+    var age: String
+    
+    init(name: String, age: String) {
+        self.name = name
+        self.age = age
+    }
+}

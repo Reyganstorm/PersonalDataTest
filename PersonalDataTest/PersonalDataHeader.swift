@@ -30,6 +30,7 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
         let textField = UITextField()
         textField.addTopLable(text: "Имя")
         textField.text = "Petr"
+        textField.placeholder = "Enter"
         return textField
     }()
     
@@ -45,6 +46,8 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
         let textField = UITextField()
         textField.addTopLable(text: "Возраст")
         textField.text = "99"
+        textField.keyboardType = .decimalPad
+        textField.placeholder = "Enter"
         return textField
     }()
     
@@ -71,6 +74,8 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
         addViews()
         addConstraints()
         addChildButton.isHidden = childButton
+        nameTextField.delegate = self
+        ageTextField.delegate = self
     }
     
     private func addViews() {
@@ -146,5 +151,12 @@ class PersonalDataHeader: UITableViewHeaderFooterView {
 extension PersonalDataHeader {
     func addTargetForAddChild(target: Any, action: Selector) {
         addChildButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+}
+
+extension PersonalDataHeader: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        endEditing(true)
     }
 }

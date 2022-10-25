@@ -17,6 +17,8 @@ class PersonalController: UIViewController {
                        forCellReuseIdentifier: ChildrenTableViewCell.identifier)
         table.register(PersonalDataHeader.self,
                        forHeaderFooterViewReuseIdentifier: PersonalDataHeader.identifier)
+        table.register(DeleteAllChildFoother.self,
+                       forHeaderFooterViewReuseIdentifier: DeleteAllChildFoother.identifier)
         table.backgroundColor = .clear
         return table
     }()
@@ -33,6 +35,14 @@ class PersonalController: UIViewController {
     
     @objc private func appendChild() {
         storage.addChildren()
+        personalTableView.reloadData()
+    }
+    
+    @objc private func deleteAllChild() {
+        callActionSheet()
+    }
+    
+    @objc private func deleteSelectChild() {
         personalTableView.reloadData()
     }
 }
@@ -55,7 +65,41 @@ extension PersonalController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: ChildrenTableViewCell.identifier,
             for: indexPath) as! ChildrenTableViewCell
-        cell.configure()
+        let index = indexPath.row
+        let child = storage.getChildForRework(at: index)
+        cell.configure(childIndex: index, name: child.name, age: child.age)
+        cell.addTargetForDeleteChild(target: self, action: #selector(deleteSelectChild))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if storage.getChildrenCount() > 0 {
+        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: DeleteAllChildFoother.identifier) as! DeleteAllChildFoother
+        cell.configure()
+        cell.addTargetForDeleteChild(target: self, action: #selector(deleteAllChild))
+        return cell
+        } else {
+            return nil
+        }
+    }
+}
+
+
+extension PersonalController {
+    func callActionSheet() {
+        let actionSheet = UIAlertController(
+            title: "Внимание",
+            message: "Действительно ли вы хотите удалить все данные?",
+            preferredStyle: .actionSheet
+        )
+        
+        actionSheet.addAction(UIAlertAction(title: "Сбросить данные", style: .destructive, handler: { _ in
+            self.storage.deleteAll()
+            self.personalTableView.reloadData()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        
+        present(actionSheet, animated: true)
     }
 }
